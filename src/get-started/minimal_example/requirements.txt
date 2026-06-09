@@ -1,0 +1,2 @@
+gwfvis @ git+https://github.com/vga-team/gwf-vis_lib.git
+vga @ git+https://github.com/vga-team/py-lib.git

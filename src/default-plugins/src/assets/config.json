@@ -1,0 +1,267 @@
+{
+  "fileBasePath": "",
+  "preferCanvas": false,
+  "accessLocalFiles": true,
+  "view": {
+    "center": [51, -116],
+    "zoom": 9
+  },
+  "imports": {
+    "gwf-default.sqlite-local-data-provider": "/src/plugins/sqlite-local-data-provider.plugin.ts",
+    "gwf-default.gwfvisdb-data-provider": "/src/plugins/gwfvisdb-data-provider.plugin.ts",
+    "gwf-default.test-data-fetcher": "/src/plugins/test-data-fetcher.plugin.ts",
+    "gwf-default.tile-layer": "/src/plugins/tile-layer.plugin.ts",
+    "gwf-default.geojson-layer": "/src/plugins/geojson-layer.plugin.ts",
+    "gwf-default.contour-layer": "/src/plugins/contour-layer.plugin.ts",
+    "gwf-default.legend": "/src/plugins/legend.plugin.ts",
+    "gwf-default.data-control": "/src/plugins/data-control.plugin.ts",
+    "gwf-default.metadata": "/src/plugins/metadata.plugin.ts",
+    "gwf-default.markdown": "/src/plugins/markdown.plugin.ts",
+    "gwf-default.location-pins": "/src/plugins/location-pins.plugin.ts",
+    "gwf-default.line-chart": "/src/plugins/line-chart.plugin.ts"
+  },
+  "plugins": [
+    {
+      "import": "gwf-default.location-pins",
+      "container": "sidebar",
+      "containerProps": {
+        "slot": "top"
+      }
+    },
+    {
+      "import": "gwf-default.sqlite-local-data-provider",
+      "container": "sidebar"
+    },
+    {
+      "import": "gwf-default.gwfvisdb-data-provider",
+      "container": ""
+    },
+    {
+      "import": "gwf-default.markdown",
+      "container": "sidebar",
+      "props": {
+        "markdownUrl": "./test.md"
+      }
+    },
+    {
+      "import": "gwf-default.test-data-fetcher",
+      "container": "sidebar"
+    },
+    {
+      "import": "gwf-default.metadata",
+      "container": "sidebar"
+    },
+    {
+      "import": "gwf-default.line-chart",
+      "container": "sidebar",
+      "props": {
+        "header": "Line Chart - Variable",
+        "dataFor": {
+          "dataSource": "gwfvisdb:https://gwf-vis.usask.ca/v1/api/file/fetch/public/datasets/mesh.new.gwfvisdb",
+          "dimensionName": "time",
+          "variableName": "STGW"
+        }
+      }
+    },
+    {
+      "import": "gwf-default.line-chart",
+      "container": "sidebar",
+      "props": {
+        "header": "Line Chart - Location",
+        "dataFor": {
+          "dataSource": "gwfvisdb:https://gwf-vis.usask.ca/v1/api/file/fetch/public/datasets/permafrost_reduced_fill_null.gwfvisdb",
+          "dimensionName": "level",
+          "variableNames": ["TSOL_MIN", "TSOL_MAX"]
+        }
+      }
+    },
+    {
+      "import": "gwf-default.legend",
+      "container": "main",
+      "props": {
+        "colorScheme": {
+          "": {
+            "type": "sequential",
+            "scheme": ["blue", "red"]
+          },
+          "gwfvisdb:https://gwf-vis.usask.ca/v1/api/file/fetch/public/datasets/mesh.new.gwfvisdb": {
+            "SNO": {
+              "type": "threshold",
+              "scheme": "schemeOranges[5]",
+              "thresholds": [0, 5, 50, 100, 200, 700]
+            }
+          },
+          "gwfvisdb:https://gwf-vis.usask.ca/v1/api/file/fetch/public/datasets/catchment.gwfvisdb": {
+            "": {
+              "type": "sequential",
+              "scheme": ["green", "orange"]
+            },
+            "scalarSWE": {
+              "type": "quantile",
+              "scheme": "schemeOranges[5]"
+            }
+          }
+        },
+        "dataSourceDict": {
+          "mesh-local-file": "gwfvisdb:file:test/mesh.gwfvisdb",
+          "mesh": "gwfvisdb:https://gwf-vis.usask.ca/v1/api/file/fetch/public/datasets/mesh.new.gwfvisdb",
+          "catchment": "gwfvisdb:https://gwf-vis.usask.ca/v1/api/file/fetch/public/datasets/catchment.gwfvisdb",
+          "prairie-water": "gwfvisdb:https://gwf-vis.usask.ca/v1/api/file/fetch/public/datasets/prairie-water-2005.gwfvisdb",
+          "u15": "gwfvisdb:https://gwf-vis.usask.ca/v1/api/file/fetch/public/datasets/u15.gwfvisdb",
+          "permafrost": "gwfvisdb:https://gwf-vis.usask.ca/v1/api/file/fetch/public/datasets/permafrost_reduced_fill_null.gwfvisdb"
+        }
+      }
+    },
+    {
+      "import": "gwf-default.data-control",
+      "container": "main",
+      "props": {
+        "header": "My Data Control",
+        "dataSources": [
+          "gwfvisdb:file:test/mesh.gwfvisdb",
+          "gwfvisdb:https://gwf-vis.usask.ca/v1/api/file/fetch/public/datasets/mesh.new.gwfvisdb",
+          "gwfvisdb:https://gwf-vis.usask.ca/v1/api/file/fetch/public/datasets/catchment.gwfvisdb",
+          "gwfvisdb:https://gwf-vis.usask.ca/v1/api/file/fetch/public/datasets/prairie-water-2005.gwfvisdb",
+          "gwfvisdb:https://gwf-vis.usask.ca/v1/api/file/fetch/public/datasets/u15.gwfvisdb",
+          "gwfvisdb:https://gwf-vis.usask.ca/v1/api/file/fetch/public/datasets/permafrost_reduced_fill_null.gwfvisdb"
+        ],
+        "dataSourceDict": {
+          "mesh-local-file": "gwfvisdb:file:test/mesh.gwfvisdb",
+          "mesh": "gwfvisdb:https://gwf-vis.usask.ca/v1/api/file/fetch/public/datasets/mesh.new.gwfvisdb",
+          "catchment": "gwfvisdb:https://gwf-vis.usask.ca/v1/api/file/fetch/public/datasets/catchment.gwfvisdb",
+          "prairie-water": "gwfvisdb:https://gwf-vis.usask.ca/v1/api/file/fetch/public/datasets/prairie-water-2005.gwfvisdb",
+          "u15": "gwfvisdb:https://gwf-vis.usask.ca/v1/api/file/fetch/public/datasets/u15.gwfvisdb",
+          "permafrost": "gwfvisdb:https://gwf-vis.usask.ca/v1/api/file/fetch/public/datasets/permafrost_reduced_fill_null.gwfvisdb"
+        }
+      }
+    },
+    {
+      "import": "gwf-default.tile-layer",
+      "container": "",
+      "props": {
+        "displayName": "World_Imagery",
+        "active": true,
+        "urlTemplate": "https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}",
+        "options": {
+          "attribution": "Source: Esri, Maxar, Earthstar Geographics, and the GIS User Community"
+        }
+      }
+    },
+    {
+      "import": "gwf-default.tile-layer",
+      "container": "",
+      "props": {
+        "displayName": "World_Physical_Map",
+        "urlTemplate": "https://server.arcgisonline.com/arcgis/rest/services/World_Physical_Map/MapServer/tile/{z}/{y}/{x}",
+        "options": {
+          "attribution": "Source: US National Park Service"
+        }
+      }
+    },
+    {
+      "import": "gwf-default.tile-layer",
+      "container": "",
+      "props": {
+        "displayName": "NatGeo_World_Map",
+        "type": "overlay",
+        "urlTemplate": "https://server.arcgisonline.com/arcgis/rest/services/NatGeo_World_Map/MapServer/tile/{z}/{y}/{x}",
+        "options": {
+          "attribution": "National Geographic, Esri, Garmin, HERE, UNEP-WCMC, USGS, NASA, ESA, METI, NRCAN, GEBCO, NOAA, increment P Corp.",
+          "opacity": 0.5
+        }
+      }
+    },
+    {
+      "import": "gwf-default.tile-layer",
+      "container": "",
+      "props": {
+        "displayName": "World_Street_Map",
+        "type": "overlay",
+        "urlTemplate": "https://server.arcgisonline.com/arcgis/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}",
+        "options": {
+          "attribution": "Sources: Esri, HERE, Garmin, USGS, Intermap, INCREMENT P, NRCan, Esri Japan, METI, Esri China (Hong Kong), Esri Korea, Esri (Thailand), NGCC, (c) OpenStreetMap contributors, and the GIS User Community",
+          "opacity": 0.5
+        }
+      }
+    },
+    {
+      "import": "gwf-default.contour-layer",
+      "container": "",
+      "props": {
+        "displayName": "Contours",
+        "type": "overlay",
+        "active": true
+      }
+    },
+    {
+      "import": "gwf-default.geojson-layer",
+      "container": "main",
+      "props": {
+        "displayName": "GeoJSON",
+        "type": "overlay",
+        "active": true,
+        "colorScheme": {
+          "": {
+            "type": "sequential",
+            "scheme": ["blue", "red"]
+          },
+          "gwfvisdb:https://gwf-vis.usask.ca/v1/api/file/fetch/public/datasets/mesh.new.gwfvisdb": {
+            "SNO": {
+              "type": "threshold",
+              "scheme": "schemeOranges[5]",
+              "thresholds": [0, 5, 50, 100, 200, 700]
+            }
+          },
+          "gwfvisdb:https://gwf-vis.usask.ca/v1/api/file/fetch/public/datasets/catchment.gwfvisdb": {
+            "": {
+              "type": "sequential",
+              "scheme": ["green", "orange"]
+            },
+            "scalarSWE": {
+              "type": "quantile",
+              "scheme": "schemeOranges[5]"
+            }
+          }
+        }
+      }
+    },
+    {
+      "import": "gwf-default.geojson-layer",
+      "container": "main",
+      "props": {
+        "displayName": "Something",
+        "type": "overlay",
+        "active": true,
+        "geojson": {
+          "type": "FeatureCollection",
+          "features": [
+            {
+              "type": "Feature",
+              "properties": {},
+              "geometry": {
+                "coordinates": [-105.72343749999979, 55.68324040840892],
+                "type": "Point"
+              }
+            },
+            {
+              "type": "Feature",
+              "properties": {},
+              "geometry": {
+                "coordinates": [
+                  [
+                    [-118.02812194231379, 62.354263150241025],
+                    [-118.02812194231379, 48.11412751200518],
+                    [-92.89140319231419, 48.11412751200518],
+                    [-92.89140319231419, 62.354263150241025],
+                    [-118.02812194231379, 62.354263150241025]
+                  ]
+                ],
+                "type": "Polygon"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ]
+}

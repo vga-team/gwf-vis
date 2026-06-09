@@ -1,0 +1,3 @@
+[submodule "mesh/raw/MESH-Scripts"]
+	path = mesh_example/raw/MESH-Scripts
+	url = https://github.com/MESH-Model/MESH-Scripts.git

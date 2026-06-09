@@ -1,0 +1,4 @@
+gwfvis @ git+https://github.com/vga-team/gwf-vis_lib.git
+vga @ git+https://github.com/vga-team/py-lib.git
+netCDF4==1.5.8
+pyshp==2.1.3

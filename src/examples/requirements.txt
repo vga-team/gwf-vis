@@ -1,0 +1,5 @@
+vga @ git+https://github.com/vga-team/py-lib.git
+gwfvis @ git+https://github.com/vga-team/gwf-vis_lib.git
+numpy==1.26.0
+matplotlib==3.8.3
+basemap==1.4.1

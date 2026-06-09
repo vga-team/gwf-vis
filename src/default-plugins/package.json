@@ -1,0 +1,39 @@
+{
+  "name": "gwf-vis-default-plugins",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "main": "dist/my-element.es.js",
+  "exports": {
+    ".": "./dist/my-element.es.js"
+  },
+  "types": "types/my-element.d.ts",
+  "files": [
+    "dist",
+    "types"
+  ],
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build"
+  },
+  "dependencies": {
+    "chart.js": "^4.3.1",
+    "chartjs-plugin-zoom": "^2.0.1",
+    "d3": "^7.8.2",
+    "d3-tricontour": "^1.0.2",
+    "leaflet.vectorgrid": "^1.3.0",
+    "lit": "^2.6.1",
+    "marked": "^5.1.0",
+    "sql.js": "^1.8.0",
+    "vga-core": "github:vga-team/core#71e647cd8f6d031d8456efc6b3bbafc8432146cf"
+  },
+  "devDependencies": {
+    "@types/d3": "^7.4.0",
+    "@types/leaflet.vectorgrid": "^1.3.5",
+    "@types/marked": "^5.0.0",
+    "@types/sql.js": "^1.4.4",
+    "tiny-glob": "^0.2.9",
+    "typescript": "^4.9.3",
+    "vite": "^4.1.0"
+  }
+}
